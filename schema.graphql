@@ -1,0 +1,25 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type User {
+  id: ID!
+  name: String!
+  age: Int!
+  height: Float!
+  isMarried: Boolean
+  friends: [User!]!
+  videosPosted: [Video!]
+}
+
+type Query {
+  users: [User]
+  #   user(id: ID, name: String): User OR
+  user(input: UserInput): User
+}
+
+input UserInput {
+  id: ID
+  name: String
+}
