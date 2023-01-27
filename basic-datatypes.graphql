@@ -1,0 +1,15 @@
+type User {
+  id: ID!
+  name: String!
+  age: Int!
+  height: Float!
+  isMarried: Boolean
+  friends: [User!]!
+  videosPosted: [Video!]
+}
+
+type Video {
+  id: ID!
+  title: String!
+  description: String!
+}
