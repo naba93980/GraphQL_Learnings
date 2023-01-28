@@ -1,0 +1,25 @@
+query getCountry {
+  country(code: "US") {
+    code
+    name
+    phone
+    capital
+    continent {
+      name
+      code
+      countries {
+        name
+        capital
+      }
+    }
+  }
+}
+
+query getLang {
+  languages {
+    code
+    name
+    native
+    rtl
+  }
+}
