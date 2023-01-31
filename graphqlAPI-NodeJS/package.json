@@ -1,0 +1,25 @@
+{
+  "name": "graphql_learnings",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/naba93980/GraphQL_Learnings.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naba93980/GraphQL_Learnings/issues"
+  },
+  "homepage": "https://github.com/naba93980/GraphQL_Learnings#readme",
+  "dependencies": {
+    "apollo-server": "^3.11.1",
+    "graphql": "^16.6.0"
+  }
+}
