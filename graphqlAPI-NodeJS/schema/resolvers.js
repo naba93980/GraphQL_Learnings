@@ -24,6 +24,16 @@ const resolvers = {
         favouriteMovies: (parents, args)=>{
             return _.filter(MovieList,(movie)=>movie.yearOfPublication<=2020)
         }
+    },
+
+    Mutation : {
+        createUser: (parent, args) =>{
+            const user = args.input
+            const lastId = UserList[UserList.length - 1].id; 
+            user.id = lastId+1;
+            UserList.push(user);
+            return user;
+        }
     }
 }
 
