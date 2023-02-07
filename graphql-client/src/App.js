@@ -1,5 +1,6 @@
 import './App.css';
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import DisplayData from './DisplayData';
 
 function App() {
   const cache = new InMemoryCache();
@@ -10,11 +11,12 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="App">
-        <p>hello world</p>
+        <h1>List of users</h1>
+        <DisplayData />
       </div>
     </ApolloProvider>
-
   );
 }
 
 export default App;
+ 
