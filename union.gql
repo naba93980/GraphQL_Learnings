@@ -21,3 +21,21 @@
    }
 
     union UsersResult = UsersSuccessResult | UsersErrorResult
+
+
+# query operation that returns union type
+
+    query  {
+      users {
+        ... on UsersSuccessResult {
+          users {
+            id
+            name
+          }
+        }
+
+        ... on UsersErrorResult {
+          message
+        }
+      }
+    }
