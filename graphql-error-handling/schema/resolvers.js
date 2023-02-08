@@ -5,7 +5,8 @@ const resolvers = {
     Query: {
         users: (parents, args, context, info) => {
             console.log(parents)  // undefined bcoz parent that is Query doesnot return anything
-            return UserList;
+            if (UserList) return {users: UserList};
+            return {message: 'There is some error kido'};
         },
         user: (_parents, args, context, info) => {
             const id = Number(args.id);
@@ -46,6 +47,18 @@ const resolvers = {
                 }
             });
             return userUpdated;
+        }
+    },
+
+    UsersResult : {
+        __resolveType(obj){
+
+            if(obj.users) return "UsersSuccessResult";
+
+            if(obj.message) return "UsersErrorResult";
+
+            return null;
+
         }
     }
 }
