@@ -1,0 +1,12 @@
+fragment getAgeNationality on User {
+  age
+  nationality
+}
+
+query getUsersUsingFragment {
+  users {
+    id
+    name
+    ...getAgeNationality
+  }
+}
