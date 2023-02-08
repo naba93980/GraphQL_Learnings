@@ -3,10 +3,11 @@ const _ = require('lodash')
 
 const resolvers = {
     Query: {
-        users: () => {
+        users: (parents, args, context, info) => {
+            console.log(parents)  // undefined bcoz parent that is Query doesnot return anything
             return UserList;
         },
-        user: (_parents, args) => {
+        user: (_parents, args, context, info) => {
             const id = Number(args.id);
             const user = _.find(UserList, { id: id });
             return user;
@@ -14,14 +15,15 @@ const resolvers = {
         movies: () => {
             return MovieList;
         },
-        movie: (_parent, args) => {
+        movie: (_parent, args, context, info) => {
             const name = args.name;
             const movie = _.find(MovieList, { name: name });
             return movie;
         }
     },
     User: {
-        favouriteMovies: (parents, args)=>{
+        favouriteMovies: (parents, args, context, info)=>{
+            console.log(context)
             return _.filter(MovieList,(movie)=>movie.yearOfPublication<=2020)
         }
     },
