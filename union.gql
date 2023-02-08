@@ -1,0 +1,23 @@
+  type User {
+        id: ID!
+        name: String!
+        username: String!
+        age: Int!
+        nationality: Nationality!
+        friends: [User!]
+        favouriteMovies: [Movie!]
+    }
+
+  type Query {
+        users: UsersResult
+   }
+
+   type UsersSuccessResult {
+        users: [User!]!
+   }
+
+   type UsersErrorResult {
+        message: String!
+   }
+
+    union UsersResult = UsersSuccessResult | UsersErrorResult
